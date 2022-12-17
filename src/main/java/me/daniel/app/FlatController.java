@@ -67,7 +67,7 @@ public class FlatController {
 
     @DeleteMapping("/flats/{id}")
     void deleteFlat(@PathVariable Long id) {
-        repo.deleteById(id);
+        repo.findById(id).ifPresent(flat -> repo.delete(flat));
     }
 
 }
